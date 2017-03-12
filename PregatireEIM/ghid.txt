@@ -1,0 +1,49 @@
+B. Butoane & listeneri
+
+1. onCreate: findViewById
+2. creare listener
+3. asociere listeneri (onCreate)
+
+Dezactivare restaurare / salvare stare
+
+1. XML gui: android:saveEnabled="false"
+2. onSaveInstanceState, Bundle.putString
+3. onRestoreInstanceState, Bundle.getString
+
+C. Activitate Secundara                 <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+1. Creare activ noua
+2. name, label (default) + filtru de intentii
+android.intent.category.DEFAULT <- ca sa fie invocata din Princ
+3. onCrate referinte, listeneri
+4. preluare date intentie si folosire
+
+---- invocare activ secundara
+1. onCreate(), obtinere ref catre buton de lansare
+2. inregistrare listener
+3. instantiere Intent in listener cu param Context, actiunea invocata
+4. putExtra
+5. startActivityForResult()
+6. onActivityResult() <- request code sa fie cel din startActivityforresult()
+
+
+D.
+1. xml AndroidManifest, macar android:name
+2. onStartCommand(intent, flags, id)
+3. processing thread (se creeaza un intent ce va fi propagat)
+
+----
+Lansare serviciu:
+OnCreate() din activ preiau nr_clicks, creez intent, getApplicationContext().startService(intent);
+	          serviceStatus = Constants.SERVICE_STARTED;
+
+
+onDestroy() distrugere
+-----------
+
+Ascultator - extends BroadcastReceiver : onReceive(Context, Intent)
+intentFilter
+
+onResume()
+onPause();
